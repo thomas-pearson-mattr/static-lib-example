@@ -45,6 +45,8 @@ target 'BbsStaticLibs' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  pod 'bbs-signatures', :git => 'https://github.com/mattrglobal/ffi-bbs-signatures'
+
   target 'BbsStaticLibsTests' do
     inherit! :complete
     # Pods for testing

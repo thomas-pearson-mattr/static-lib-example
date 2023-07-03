@@ -10,6 +10,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@mattrglobal/pairing-crypto-rn": "0.3.0",
+    "@mattrglobal/rn-bbs-signatures": "1.0.2",
     "react": "18.2.0",
     "react-native": "0.72.1"
   },

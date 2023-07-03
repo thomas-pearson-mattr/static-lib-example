@@ -1,4 +1,5 @@
 PODS:
+  - bbs-signatures (0.1.0)
   - boost (1.76.0)
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
@@ -75,6 +76,12 @@ PODS:
   - hermes-engine/Pre-built (0.72.1)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
+  - pairing-crypto-rn (0.3.0):
+    - pairing-crypto-rn/Default (= 0.3.0)
+  - pairing-crypto-rn/Default (0.3.0):
+    - pairing-crypto-rn/PairingCrypto
+    - React-Core
+  - pairing-crypto-rn/PairingCrypto (0.3.0)
   - RCT-Folly (2021.07.22.00):
     - boost
     - DoubleConversion
@@ -484,12 +491,16 @@ PODS:
     - React-jsi (= 0.72.1)
     - React-logger (= 0.72.1)
     - React-perflogger (= 0.72.1)
+  - rn-bbs-signatures (1.0.2):
+    - bbs-signatures
+    - React
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
+  - bbs-signatures (from `https://github.com/mattrglobal/ffi-bbs-signatures`)
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -518,6 +529,7 @@ DEPENDENCIES:
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - libevent (~> 2.1.12)
   - OpenSSL-Universal (= 1.1.1100)
+  - "pairing-crypto-rn (from `../node_modules/@mattrglobal/pairing-crypto-rn`)"
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -552,6 +564,7 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "rn-bbs-signatures (from `../node_modules/@mattrglobal/rn-bbs-signatures`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -572,6 +585,8 @@ SPEC REPOS:
     - YogaKit
 
 EXTERNAL SOURCES:
+  bbs-signatures:
+    :git: https://github.com/mattrglobal/ffi-bbs-signatures
   boost:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
   DoubleConversion:
@@ -585,6 +600,8 @@ EXTERNAL SOURCES:
   hermes-engine:
     :podspec: "../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
     :tag: hermes-2023-03-20-RNv0.72.0-49794cfc7c81fb8f69fd60c3bbf85a7480cc5a77
+  pairing-crypto-rn:
+    :path: "../node_modules/@mattrglobal/pairing-crypto-rn"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTRequired:
@@ -649,10 +666,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  rn-bbs-signatures:
+    :path: "../node_modules/@mattrglobal/rn-bbs-signatures"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
+CHECKOUT OPTIONS:
+  bbs-signatures:
+    :commit: bba4ff32cf3c659b380237ca856266499e025705
+    :git: https://github.com/mattrglobal/ffi-bbs-signatures
+
 SPEC CHECKSUMS:
+  bbs-signatures: 13b7d7b3048c27bab8580c0942163955cf9a5d31
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
@@ -671,6 +696,7 @@ SPEC CHECKSUMS:
   hermes-engine: 9df83855a0fd15ef8eb61694652bae636b0c466e
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
+  pairing-crypto-rn: 1fbc65ab58ea2fed5b92d462f8183616fe8ce506
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: c52ee8fb2b35c1b54031dd8e92d88ad4dba8f2ce
   RCTTypeSafety: 75fa444becadf0ebfa0a456b8c64560c7c89c7df
@@ -703,10 +729,11 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 67707a955b9ecc628cc38bdc721fbc498910f0fd
   React-utils: 0a70ea97d4e2749f336b450c082905be1d389435
   ReactCommon: e593d19c9e271a6da4d0bd7f13b28cfeae5d164b
+  rn-bbs-signatures: a66ca982b6955696418a7aeaf07d7547a4b6543d
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 65286bb6a07edce5e4fe8c90774da977ae8fc009
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: bed5704c11de611acf2af759ab71e00c23fa4947
+PODFILE CHECKSUM: 294a9d39920b41b515e178103e8cddc0f1baa917
 
 COCOAPODS: 1.12.1
